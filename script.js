@@ -1,17 +1,23 @@
-let plane;
+let planeImg;
+let planeX, planeY;
+
+function preload() {
+  planeImg = loadImage('clipart2172953.png'); // Your uploaded image
+}
 
 function setup() {
-  createCanvas(800, 400);
-  plane = createVector(width / 2, height / 2);
+  createCanvas(windowWidth, windowHeight);
+  planeX = width / 2;
+  planeY = height / 2;
 }
 
 function draw() {
   background(135, 206, 250); // Sky blue
-  fill(255, 0, 0); // Red plane
-  rect(plane.x, plane.y, 60, 20); // Draw plane
+  image(planeImg, planeX, planeY, 100, 100); // Display the plane
 
-  if (keyIsDown(LEFT_ARROW)) plane.x -= 5;
-  if (keyIsDown(RIGHT_ARROW)) plane.x += 5;
-  if (keyIsDown(UP_ARROW)) plane.y -= 5;
-  if (keyIsDown(DOWN_ARROW)) plane.y += 5;
+  // Movement controls
+  if (keyIsDown(LEFT_ARROW)) planeX -= 5;
+  if (keyIsDown(RIGHT_ARROW)) planeX += 5;
+  if (keyIsDown(UP_ARROW)) planeY -= 5;
+  if (keyIsDown(DOWN_ARROW)) planeY += 5;
 }
